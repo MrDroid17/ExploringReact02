@@ -1,0 +1,14 @@
+{
+  "name": "namesty-react",
+  "version": "1.0.0",
+  "description": "Namesty react ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Sobhit Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
