@@ -1,4 +1,16 @@
-.title{
+#root {
     color: red;
 }
 
+#container {
+    color: lightblue;
+    background-color: antiquewhite;
+}
+
+.head {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
