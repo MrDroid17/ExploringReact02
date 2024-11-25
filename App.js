@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const resData = [
+const resList = [
     {
         "info": {
             "id": "8912",
@@ -1652,6 +1652,11 @@ const resData = [
 ]
 
 /**
+ * Not using keys (not acceptable) <<<< index as key  <<< unique id(Best practice)
+ */
+
+
+/**
  * Header
  *  -Logo
  *  -Nav items
@@ -1690,15 +1695,27 @@ const Header = () => {
 }
 
 const RestaurantCard = (props) => {
-    // destructure props
-    // const RestaurantCard = ({ resName, cuisine }) => {
+    const {
+        cloudinaryImageId,
+        name,
+        cuisines,
+        avgRating,
+        sla,
+        costForTwo,
+    } = props?.resData?.info;
+
     return (
         <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img className="res-img" src="{props.info.cloudinaryImageId}" alt="" />
-            <h3 className="">{props.info.name}</h3>
-            <h4>{props.info.cuisine}</h4>
-            <h5>{props.info.avgRatingString}</h5>
-            <h5>{props.info.sla.slaString}</h5>
+            <img className="res-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="restaurant Image" />
+            <h3 className="card-title">{name}</h3>
+            <div className="card-body">
+                <p>{cuisines.join(", ")}</p>
+                <p>Rating <strong>{avgRating}</strong></p>
+            </div>
+            <div className="card-footer">
+                <div><strong>{sla.deliveryTime}</strong> min</div>
+                <div><strong>{costForTwo}</strong></div>
+            </div>
         </div>
     )
 
@@ -1709,7 +1726,10 @@ const Body = () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="restaurant-container">
-                <RestaurantCard resData={resData} />
+                {
+                    resList.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
+                }
+
             </div>
         </div>
     )
