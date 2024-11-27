@@ -1,0 +1,67 @@
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.shimmer-card {
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+}
+
+.scard-title {
+    height: 30px;
+    width: 80%;
+    background-color: #dbdbdb;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.scard-body {
+    height: 60px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.cuisine {
+    height: 30px;
+    margin: 5px 2px;
+    padding: 0px;
+    background-color: #dbdbdb;
+}
+
+.rating {
+    height: 20px;
+    width: 45%;
+    margin: 5px 2px;
+    background-color: #dbdbdb;
+}
+
+.scard-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scard-footer>div {
+    width: 60px;
+    height: 20px;
+    background-color: #dbdbdb;
+}
+
+
+.sres-img {
+    width: 200px;
+    height: 160px;
+    background-color: #dbdbdb;
+}
+
+.search {
+    padding: 10px;
+}
+
+.filter-btn {
+    margin: 10px;
+}

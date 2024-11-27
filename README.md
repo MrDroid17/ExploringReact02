@@ -60,11 +60,31 @@ import {Component} from "path";
 # React Hooks
  (Normal JS utility functions)
 - useState() - Superpowerful State Variables in react
-- useEffect()
-  ## Reconciliation algorithm (react Fiber)
+    ```jsx
+      const [count, setCount] = useState(0);
+    ```
+    
+- useEffect() - it will be call post the respective component is rendered
+  - Uses 2 argument, 
+    - 1.  Callback function 
+    - 2. Dependency array
+    ```jsx
+        useEffect(() => {
+                    console.log('Component mounted');
+                  }, []);
+    ```
+  ## Reconciliation algorithm (React Fiber)
   - Uses virtual DOM - representaion of actual DOM - react-16
   - Diff algorithm - finds the diff of two virtual DOM(updated and previous virtual DOM)
   - [React fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
+
+  ## Monolith and Micro Service Architecture:
+    - Micro Service - Seperation of concern and Single responsibility principle.
+
+  ## 2 ways to render data
+    - **First** - Loads the page ----> api call ----> Render UI
+    - **Second** - Loads the Page ----> render ui with whatever data you have ----> api call ---> re render api( *React prefer this approach*)
+ 
 
 
 #  2 types Routing in web apps

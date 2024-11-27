@@ -1,13 +1,25 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
-import resList from "../utils/mockData";
+import { useEffect, useState } from "react";
+import ShimmerContainer from "./shimmer/ShimmerContainer";
 
 
 
 const Body = () => {
 
-    const [listOfRestaurant, setListOfRestaurant] = useState(resList)
-    const [restaurantCount, setRestaurantCount] = useState(resList.length)
+    const [listOfRestaurant, setListOfRestaurant] = useState([])
+    const [restaurantCount, setRestaurantCount] = useState(0)
+
+    useEffect(() => {
+        fetchResList();
+    }, [])
+
+    const fetchResList = async () => {
+        const apiData = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5743545&lng=88.3628734&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+        const actualResList = await apiData.json();
+        setListOfRestaurant(actualResList?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
+
     return (
         <div className="body">
             <div className="filter">
@@ -24,12 +36,19 @@ const Body = () => {
                 >Clear Filter</button>
                 <div>Count {restaurantCount}</div>
             </div>
-            <div className="restaurant-container">
-                {
-                    listOfRestaurant.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
-                }
 
-            </div>
+            {
+                /**
+                * Conditional rendering
+                */
+                listOfRestaurant.length === 0 ? <ShimmerContainer /> :
+                    <div className="restaurant-container">
+                        {
+                            listOfRestaurant.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
+                        }
+
+                    </div>
+            }
         </div>
     )
 }
