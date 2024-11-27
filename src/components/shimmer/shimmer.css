@@ -15,7 +15,6 @@
 .scard-title {
     height: 30px;
     width: 80%;
-    background-color: #dbdbdb;
     margin: 10px 0px;
     padding: 0px;
 }
@@ -30,14 +29,12 @@
     height: 30px;
     margin: 5px 2px;
     padding: 0px;
-    background-color: #dbdbdb;
 }
 
 .rating {
     height: 20px;
     width: 45%;
     margin: 5px 2px;
-    background-color: #dbdbdb;
 }
 
 .scard-footer {
@@ -48,14 +45,14 @@
 .scard-footer>div {
     width: 60px;
     height: 20px;
-    background-color: #dbdbdb;
+    background: linear-gradient(to right, #ddd 8%, #f0f0f0 18%, #ddd 33%);
+    animation: shimmer 10s infinite linear;
 }
 
 
 .sres-img {
     width: 200px;
-    height: 160px;
-    background-color: #dbdbdb;
+    height: 150px;
 }
 
 .search {
@@ -64,4 +61,19 @@
 
 .filter-btn {
     margin: 10px;
+}
+
+.shimmer-anime{
+    background: linear-gradient(to right, #ddd 8%, #f0f0f0 18%, #ddd 33%);
+    animation: shimmer 10s infinite linear;
+}
+
+/* Animation for shimmer effect */
+@keyframes shimmer {
+0% {
+    background-position: -1000px 0;
+}
+100% {
+    background-position: 1000px 0;
+}
 }
