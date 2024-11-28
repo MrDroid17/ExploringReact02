@@ -4,11 +4,12 @@ import ShimmerContainer from "./shimmer/ShimmerContainer";
 import { SWIGGY_RESTAURANTA_URL } from "../utils/constants";
 
 
-
 const Body = () => {
 
-    const [listOfRestaurant, setListOfRestaurant] = useState([])
-    const [restaurantCount, setRestaurantCount] = useState(0)
+    const [listOfRestaurant, setListOfRestaurant] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+    const [restaurantCount, setRestaurantCount] = useState(0);
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
         fetchResList();
@@ -19,6 +20,8 @@ const Body = () => {
         const actualResList = await apiData.json();
         const resList = actualResList?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setListOfRestaurant(resList);
+        setFilteredRestaurant(resList);
+        setRestaurantCount(resList.length);
     }
 
 
@@ -27,16 +30,28 @@ const Body = () => {
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
                     const filterList = listOfRestaurant.filter(res => res.info.avgRating > 4.5)
-                    setListOfRestaurant(filterList);
+                    setFilteredRestaurant(filterList);
                     setRestaurantCount(filterList.length);
                 }}
                 >Top Rated Restaurant</button>
                 <button className="filter-btn" onClick={() => {
-                    setListOfRestaurant(resList);
-                    setRestaurantCount(resList.length);
+                    // fetchResList(); // to get latest data from apis
+                    setListOfRestaurant(listOfRestaurant);
+                    setFilteredRestaurant(listOfRestaurant);
+                    setRestaurantCount(listOfRestaurant.length);
                 }}
                 >Clear Filter</button>
-                <div>Count {restaurantCount}</div>
+                <div className="search">
+                    <input type="text" className="search-box" value={searchText} onChange={(e) => {
+                        setSearchText(e.target.value);
+                    }} />
+                    <button onClick={() => {
+                        const filteredRes = listOfRestaurant.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setFilteredRestaurant(filteredRes);
+                        setRestaurantCount(filteredRes.length)
+                    }}>Search</button>
+                </div>
+                <div className="count">Count {restaurantCount}</div>
             </div>
 
             {
@@ -46,7 +61,7 @@ const Body = () => {
                 listOfRestaurant.length === 0 ? <ShimmerContainer /> :
                     <div className="restaurant-container">
                         {
-                            listOfRestaurant.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
+                            filteredRestaurant.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
                         }
 
                     </div>
