@@ -5,6 +5,7 @@ import { SWIGGY_RESTAURANTA_URL } from "../utils/constants";
 
 
 const Body = () => {
+    console.log("Body Render");
 
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);

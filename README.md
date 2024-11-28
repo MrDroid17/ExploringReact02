@@ -67,7 +67,8 @@ import {Component} from "path";
 - useEffect() - it will be call post the respective component is rendered
   - Uses 2 argument, 
     - 1.  Callback function 
-    - 2. Dependency array
+    - 2. Dependency array -> 
+        - If no dependency array provided --> use Effect will be called on post every render of useEffect
     ```jsx
         useEffect(() => {
                     console.log('Component mounted');
