@@ -1,32 +1,62 @@
-import React from "react";
+import { Component } from "react";
 
-class UserClass extends React.Component {
+class UserClass extends Component {
     constructor(props) {
         super(props);
-
+        console.log(this.props.name, "      constructor")
         this.state = {
-            count: 0,
-            count2: 2
+            userInfo: {
+                name: "sobhit",
+                location: "default",
+            }
         }
     }
+
+    async componentDidMount() {
+        console.log(this.props.name, "      component did mount")
+        const data = await fetch("https://api.github.com/users/mrdroid17");
+        const json = await data.json();
+        this.setState({
+            userInfo:json
+        })
+
+        console.log(json);
+        // api call
+    }
+
     render() {
+        const {name, location, avatar_url} = this.state.userInfo;
+        console.log(this.props.name, "      render")
         return (
             <div className="user-card">
-                <p>Count : {this.state.count}</p>
-                <p>Count : {this.state.count2}</p>
-                <button onClick={() => {
-                    this.setState({
-                        count: this.state.count + 1,
-                        count2: this.state.count2 + 1
-                    })
-
-                }}>Update Count</button>
-                <p>Name : {this.props.name}</p>
+                <img src={avatar_url} width="100px"/>
+                <p>Name : {name}</p>
                 <p>Contact No: 7XXXXXXXXX9</p>
-                <p>Address: {this.props.location}</p>
+                <p>Address: {location}</p>
             </div>
         )
     }
 }
+
+/**
+ * https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+ * 
+ * **** flow ****
+ * Mounting
+ *      constructor called
+ *      render ui
+ *      componnetDidMount(called)
+ *              api call
+ *      
+ * Update
+ *      setState
+ *      render Ui - reconcilicailation
+ *      componentUpdate
+ * 
+ * Unmount
+ *      componentDidUnmount
+ * 
+ * 
+ */
 
 export default UserClass;
