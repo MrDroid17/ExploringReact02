@@ -1,9 +1,15 @@
-const User = () => {
+import { useEffect, useState } from "react";
+const User = (props) => {
+    const [count, setCount] = useState(0);
+    const [count2, setCount2] = useState(2);
+
     return (
         <div className="user-card">
-            <p>Name : Sobhit</p>
+            <p>Count : {count}</p>
+            <p>Count : {count2}</p>
+            <p>Name : {props.name}</p>
             <p>Contact No: 98XXXXXXXX01</p>
-            <p>Address: Ambience Island</p>
+            <p>Address: {props.location}</p>
         </div>
     )
 
