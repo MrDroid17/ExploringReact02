@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     console.log("Header Render");
@@ -8,6 +9,8 @@ const Header = () => {
     useEffect(() => {
         console.log("Header useEffect called");
     }, [loginButtonLabel])
+
+    const onlineStatus = useOnlineStatus();
     return (
         <div className="header">
             <div className="img-container">
@@ -17,6 +20,10 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
+                    {/* For Emoji => Press Windows key + . (period) or Windows key + ; (semicolon) */}
+                    <li>
+                        Online Status: {onlineStatus ? "✅" : "🔴"}
+                    </li>
                     <li>
                         <Link to="/">Home</Link>
                     </li>

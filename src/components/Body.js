@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ShimmerContainer from "./shimmer/ShimmerContainer";
 import { SWIGGY_RESTAURANTA_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -24,6 +25,12 @@ const Body = () => {
         setListOfRestaurant(resList);
         setFilteredRestaurant(resList);
         setRestaurantCount(resList.length);
+    }
+
+
+    const onlineStatus = useOnlineStatus();
+    if (!onlineStatus) {
+        return <div className="offline">You are offline</div>
     }
 
 
