@@ -92,6 +92,14 @@ import {Component} from "path";
  - Client Side Routing
  - Server Side Routing
 
+#  Higher order component
+  - A **Higher-Order Component (HOC)** in React is a pattern used to reuse component logic. It is a function that takes a component as input and returns a new enhanced component.
+  -  This is useful for tasks like:
+     -   applying authentication, 
+     -   adding styling, 
+     -   or reusing common functionality across multiple components.
+  
+
 
  # Redux Toolkit
   - Install @reduxjs/toolkit and react-redux

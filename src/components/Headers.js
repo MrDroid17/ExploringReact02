@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { HEADER_LINKS } from "../utils/constants";
 
 const Header = () => {
     console.log("Header Render");
@@ -24,22 +25,19 @@ const Header = () => {
                     <li>
                         Online Status: {onlineStatus ? "✅" : "🔴"}
                     </li>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/grocery">Grocery</Link>
-                    </li>
-                    <li>Cart</li>
-                    <button className="login" onClick={() => {
-                        setLoginButtonLabel(loginButtonLabel == "Login" ? "Logout" : "Login")
-                    }}>
+                    {
+                        /**
+                         * All the Headers Links
+                         */
+                        HEADER_LINKS.map((link, index) => (
+                            <li key={index} className="hover:bg-gray-300 rounded-md">
+                                <Link to={link.link}>{link.name}</Link>
+                            </li>
+                        ))}
+                    <button variant="primary"
+                        className={loginButtonLabel == "Login" ? "bg-green-100 hover:bg-green-300 rounded-md px-3 h-10 mt-3" : "bg-gray-100 hover:bg-gray-300 rounded-md  px-3 h-10 mt-3"} onClick={() => {
+                            setLoginButtonLabel(loginButtonLabel == "Login" ? "Logout" : "Login")
+                        }}>
                         {loginButtonLabel}
                     </button>
                 </ul>
@@ -47,5 +45,6 @@ const Header = () => {
         </div>
     )
 }
+
 
 export default Header;
