@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { PromotedRestaurantCard } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerContainer from "./shimmer/ShimmerContainer";
 import { SWIGGY_RESTAURANTA_URL } from "../utils/constants";
@@ -13,6 +13,7 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [restaurantCount, setRestaurantCount] = useState(0);
     const [searchText, setSearchText] = useState("");
+    const PromotedResCard = PromotedRestaurantCard(RestaurantCard);
 
     useEffect(() => {
         fetchResList();
@@ -22,8 +23,13 @@ const Body = () => {
         const apiData = await fetch(SWIGGY_RESTAURANTA_URL);
         const actualResList = await apiData.json();
         const resList = actualResList?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        /**
+         * Add Promoted key for testing Higher Order Component(HOC) as notting from swiggy api
+         */
+        const promotedArrayIndex = [0, 2, 3, 5, 8, 7];
+        resList.map((res, index) => promotedArrayIndex.includes(index) ? (res.info.promoted = true) : (res.info.promoted = false));
+
         setListOfRestaurant(resList);
-        console.log("RestauratList", resList);
         setFilteredRestaurant(resList);
         setRestaurantCount(resList.length);
     }
@@ -73,7 +79,12 @@ const Body = () => {
                         {
                             filteredRestaurant.map((restaurant) => (
                                 <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
-                                    <RestaurantCard resData={restaurant} />
+                                    {
+                                        restaurant.info.promoted ? (
+                                            <PromotedResCard resData={restaurant} />
+                                        ) : (
+                                            <RestaurantCard resData={restaurant} />)
+                                    }
                                 </Link>
                             ))
                         }

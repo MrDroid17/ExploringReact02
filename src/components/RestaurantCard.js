@@ -27,4 +27,21 @@ const RestaurantCard = (props) => {
 
 }
 
+export const PromotedRestaurantCard = (Restaurant) => {
+    return (props) => {
+        return (
+            <>
+                <label className="absolute bg-black text-white rounded-lg m-2 p-2"> Promoted</label>
+                <RestaurantCard {...props} />
+            </>
+        )
+    }
+}
+
+// aggregatedDiscountInfoV3: {
+//     "header": "20% OFF",
+//         "subHeader": "UPTO ₹100"
+// }
+
+
 export default RestaurantCard;
