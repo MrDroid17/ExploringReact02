@@ -6,6 +6,7 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
 
+    const [expandedListIndex, setExpandedListIndex] = useState(null);
     const { resId } = useParams();
     const resData = useRestaurantMenu(resId);
     /**
@@ -17,7 +18,6 @@ const RestaurantMenu = () => {
 
     const { info } = resData?.data?.cards[2]?.card?.card;
     const category = resData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(card => card?.card?.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-    console.log("Category", category);
 
 
     return (
@@ -28,7 +28,16 @@ const RestaurantMenu = () => {
             </p>
             {
                 category.map((cat, index) => (
-                    <RestaurantCategory key={index} category={cat} />
+                    /**
+                     * restaurant category is controlled componnet
+                     * Lifting state up - showList is maintened in parent component instead of restaurant category itself
+                     */
+                    <RestaurantCategory
+                        key={cat?.card?.card?.title}
+                        category={cat}
+                        showList={expandedListIndex === index ? true : false}
+                        setExpandedListIndex={() => { setExpandedListIndex(index) }}
+                    />
                 ))
             }
         </div >

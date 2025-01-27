@@ -18,8 +18,8 @@ const ItemList = ({ items }) => {
                                         {item?.card?.info?.description}
                                     </p>
                                 </div>
-                                <div className="w-2/12">
-                                    <button className="absolute bg-black text-white shadow-lg rounded-lg px-3 p-1"> Add +</button>
+                                <div className="w-2/12 relative">
+                                    <button className="absolute inset-x-6 bottom-1 bg-black opacity-80 text-white font-bold shadow-lg rounded-lg px-3 p-1"> Add +</button>
                                     <img className="rounded-md" width="220px" src={CDN_URL + item?.card?.info?.imageId} alt="Item Image" />
                                 </div>
                             </div>
