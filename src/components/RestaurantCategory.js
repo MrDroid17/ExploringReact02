@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ItemList from "./itemList";
+import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ category }) => {
     const { title, itemCards } = category?.card?.card;
@@ -7,9 +7,11 @@ const RestaurantCategory = ({ category }) => {
 
     return (
         <div className="w-6/12  my-5 mx-auto">
-            <div className="flex justify-between bg-gray-50 shadow-md p-3">
+            <div className="flex justify-between bg-gray-50 shadow-md p-3 cursor-pointer" onClick={() => { 
+                setIsCollapsed(!isCollapsed) 
+                }}>
                 <span className="font-bold">{title} ({itemCards.length})</span>
-                <span className="cursor-pointer" onClick={() => { setIsCollapsed(!isCollapsed) }}>⬇️</span>
+                <span className="">⬇️</span>
             </div>
             {isCollapsed ? <></> : <ItemList items={itemCards} />}
 
