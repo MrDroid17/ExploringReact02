@@ -1,4 +1,5 @@
 import { Component } from "react";
+import UserContext from "../../utils/UserContext";
 
 class UserClass extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class UserClass extends Component {
         const data = await fetch("https://api.github.com/users/mrdroid17");
         const json = await data.json();
         this.setState({
-            userInfo:json
+            userInfo: json
         })
 
         console.log(json);
@@ -25,14 +26,23 @@ class UserClass extends Component {
     }
 
     render() {
-        const {name, location, avatar_url} = this.state.userInfo;
+        const { name, location, avatar_url } = this.state.userInfo;
         console.log(this.props.name, "      render")
+
         return (
             <div className="user-card">
-                <img src={avatar_url} width="100px"/>
+                <img src={avatar_url} width="100px" />
                 <p>Name : {name}</p>
                 <p>Contact No: 7XXXXXXXXX9</p>
                 <p>Address: {location}</p>
+                LoggedIn:
+                <UserContext.Consumer>
+                    {
+                        ({ loggedInUser }) => <p>{loggedInUser}</p>
+
+                    }
+
+                </UserContext.Consumer>
             </div>
         )
     }
