@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
 import Header from "./components/Headers";
@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 /**
  * 
  * Chucking, 
@@ -20,11 +21,24 @@ const AboutUs = lazy(() => import("./components/AboutUs"));
 const ContactUs = lazy(() => import("./components/ContactUs"));
 
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState();
+    // Updating data of context api
+    useEffect(()=>{
+        const data = {name: "Sobhit Kumar"};
+        setUserName(data.name);
+    },[])
+
     return (
+        //  using Context provider
+        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
         <div className="app">
+        {/* <UserContext.Provider value={{loggedInUser: userName}}> */}
             <Header />
+        {/* </UserContext.Provider> */}
             <Outlet />
         </div>
+        </UserContext.Provider>
     )
 }
 

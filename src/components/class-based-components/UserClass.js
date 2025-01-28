@@ -35,13 +35,11 @@ class UserClass extends Component {
                 <p>Name : {name}</p>
                 <p>Contact No: 7XXXXXXXXX9</p>
                 <p>Address: {location}</p>
-                LoggedIn:
                 <UserContext.Consumer>
                     {
-                        ({ loggedInUser }) => <p>{loggedInUser}</p>
+                        ({ loggedInUser }) => <p>LoggedIn: <b>{loggedInUser}</b></p>
 
                     }
-
                 </UserContext.Consumer>
             </div>
         )

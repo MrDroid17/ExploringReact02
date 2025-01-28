@@ -1,9 +1,10 @@
 import RestaurantCard, { PromotedRestaurantCard } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShimmerContainer from "./shimmer/ShimmerContainer";
 import { SWIGGY_RESTAURANTA_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
@@ -14,6 +15,7 @@ const Body = () => {
     const [restaurantCount, setRestaurantCount] = useState(0);
     const [searchText, setSearchText] = useState("");
     const PromotedResCard = PromotedRestaurantCard(RestaurantCard);
+    const {loggedInUser, setUserName} = useContext(UserContext);
 
     useEffect(() => {
         fetchResList();
@@ -66,6 +68,11 @@ const Body = () => {
                         setFilteredRestaurant(filteredRes);
                         setRestaurantCount(filteredRes.length)
                     }}>Search</button>
+                </div>
+                <div className="search mt-4  p-2">
+                    <label className="mx-2">Enter Username: </label>
+                    <input type="text" className="search-box border-2 rounded-lg" value={loggedInUser} 
+                    onChange={(e) => setUserName(e.target.value)} />
                 </div>
                 <div className="count pt-3">Count: {restaurantCount}</div>
             </div>

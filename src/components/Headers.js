@@ -40,7 +40,7 @@ const Header = () => {
                         ))
 
                     }
-                    <li className="font-bold">User{loggedInUser}</li>
+                    <li className="">User : <strong>{loggedInUser}</strong></li>
                     <button variant="primary"
                         className={loginButtonLabel == "Login" ? "bg-green-100 hover:bg-green-300 rounded-md px-3 h-10 mt-3" : "bg-gray-100 hover:bg-gray-300 rounded-md  px-3 h-10 mt-3"} onClick={() => {
                             setLoginButtonLabel(loginButtonLabel == "Login" ? "Logout" : "Login")
