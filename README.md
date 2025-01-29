@@ -103,7 +103,7 @@ import {Component} from "path";
     - Can lead to "Wrapper Hell" (deeply nested components).
     - Debugging is harder due to the abstraction.
     - Not as flexible as React Hooks for some use cases.  
-  ### Key Points
+  - **Key Points**
     - **Props Forwarding**: Always forward props to the wrapped component using **{...props}** to ensure it has access to its original props.
     - **Static Methods**: Static methods on the original component are not automatically copied to the HOC. Use the **hoist-non-react-statics** package if needed:
   ```jsx
@@ -116,13 +116,14 @@ import {Component} from "path";
   ```
 
 #  Controlled Component
-  A controlled component in React is an input element (e.g., <input>, <textarea>, <select>) whose value is controlled by React state. React manages the component's state, and any changes are propagated via event handlers.
+
+  A controlled component in React is an input element (e.g., ```<input>, <textarea>, <select>```) whose value is controlled by React state. React manages the component's state, and any changes are propagated via event handlers.
 
   - Key Features
     - React controls the form element’s value using the value attribute.
     - The component always reflects the latest state value.
     - Useful for form validation and dynamic input handling.
-    ```jsx
+```jsx
     import React, { useState } from 'react';
     const ControlledComponent = () => {
         const [inputValue, setInputValue] = useState('');
@@ -142,7 +143,7 @@ import {Component} from "path";
         );
     };
     export default ControlledComponent;
-    ```
+```
 
 #  Lifting State Up
   Lifting state up is a technique used to share state between multiple components by moving the state to their closest common ancestor. This allows sibling components to communicate and share the same state.

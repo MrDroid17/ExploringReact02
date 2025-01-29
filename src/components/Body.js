@@ -15,7 +15,7 @@ const Body = () => {
     const [restaurantCount, setRestaurantCount] = useState(0);
     const [searchText, setSearchText] = useState("");
     const PromotedResCard = PromotedRestaurantCard(RestaurantCard);
-    const {loggedInUser, setUserName} = useContext(UserContext);
+    const { loggedInUser, setUserName } = useContext(UserContext);
 
     useEffect(() => {
         fetchResList();
@@ -71,8 +71,8 @@ const Body = () => {
                 </div>
                 <div className="search mt-4  p-2">
                     <label className="mx-2">Enter Username: </label>
-                    <input type="text" className="search-box border-2 rounded-lg" value={loggedInUser} 
-                    onChange={(e) => setUserName(e.target.value)} />
+                    <input type="text" className="search-box border-2 rounded-lg px-2" value={loggedInUser}
+                        onChange={(e) => setUserName(e.target.value)} />
                 </div>
                 <div className="count pt-3">Count: {restaurantCount}</div>
             </div>
