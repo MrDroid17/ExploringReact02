@@ -181,12 +181,27 @@ import {Component} from "path";
     If feasible, restructure your components to avoid deep hierarchies or nest only the necessary parts.
 
  # Redux Toolkit
+    Redux Toolkit (RTK) is the official, recommended way to write Redux logic in React. It simplifies state management by reducing boilerplate code and improving developer experience.
+     **React Toolkit uses Immerjs behind the scene** 
+     **ImmerJS** : Immer (German for: always) is a tiny package that allows you to work with immutable state in a more convenient way.
+     ![Immer JS](https://immerjs.github.io/immer/)
+
+  ![alt text](redux.png)
+
+  **Steps:**
   - Install @reduxjs/toolkit and react-redux
+  - Create a Redux Slice(logical seperation of redux store)
+      - A slice contains the state, reducers (logic to modify state), and actions in one file.    
   - Build our store
-  - Connect our store to our app
-  - Slice (cartSlice)
-  - dispatch(action)
-  - Selector
+  - Provide Store to React
+  - Use Redux State in a Component
+  
+  - 🎯 **Why Use Redux Toolkit?**
+      - ✅ Less Boilerplate - No need for manual action types & reducers.
+      - ✅ Better Performance - Uses Immer for state updates.
+      - ✅ Built-in Middleware - Async handling with createAsyncThunk.
+      - ✅ Scalability - Clean modular structure.
+
 
 
 # Types of testing (developer)

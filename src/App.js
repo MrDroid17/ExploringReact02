@@ -7,6 +7,9 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/AppStore";
+import Cart from "./components/Cart";
 /**
  * 
  * Chucking, 
@@ -24,21 +27,24 @@ const AppLayout = () => {
 
     const [userName, setUserName] = useState();
     // Updating data of context api
-    useEffect(()=>{
-        const data = {name: "Sobhit Kumar"};
+    useEffect(() => {
+        const data = { name: "Sobhit Kumar" };
         setUserName(data.name);
-    },[])
+    }, [])
 
     return (
-        //  using Context provider
-        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
-        <div className="app">
-        {/* <UserContext.Provider value={{loggedInUser: userName}}> */}
-            <Header />
-        {/* </UserContext.Provider> */}
-            <Outlet />
-        </div>
-        </UserContext.Provider>
+        // Using redux provider
+        <Provider store={appStore}>
+            {/* using Context provider */}
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+                <div className="app">
+                    {/* <UserContext.Provider value={{loggedInUser: userName}}> */}
+                    <Header />
+                    {/* </UserContext.Provider> */}
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -63,6 +69,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/grocery",
                 element: <Suspense fallback="Loading..."><Grocery /></Suspense>
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             },
             {
                 path: "/restaurant/:resId",

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { HEADER_LINKS } from "../utils/constants";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
@@ -15,7 +16,14 @@ const Header = () => {
     useEffect(() => {
         console.log("Header useEffect called");
     }, [loginButtonLabel])
+
     const onlineStatus = useOnlineStatus();
+
+    /**
+     * Subscribing to the  redux store 
+     */
+    const cartItems = useSelector((store) => store.cart.items);
+
     return (
         <div className="header">
             <div className="img-container">
@@ -35,7 +43,8 @@ const Header = () => {
                          */
                         HEADER_LINKS.map((link, index) => (
                             <li key={index} className="hover:bg-gray-300 rounded-md">
-                                <Link to={link.link}>{link.name}</Link>
+
+                                <Link to={link.link} className="font-normal">{link.name === "Cart" ? (`${link.name}-(${cartItems.length} Items) `) : link.name}</Link>
                             </li>
                         ))
 
