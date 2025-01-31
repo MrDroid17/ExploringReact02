@@ -205,12 +205,12 @@ import {Component} from "path";
 
 
 # Types of testing (developer)
- - Unit Testing
- - Integration Testing
- - End to End Testing - e2e testing
+ - Unit Testing - test your react component/unit in isolation of the app
+ - Integration Testing - multiple components are involve
+ - End to End Testing - e2e testing - testing the entire flow
 
 # Setting up Testing in our app
- - Install React Testing Library
+ - Install React Testing Library uses jest under the hood
  - Installed jest
  - Installed Babel dependencies
  - Configure Babel 

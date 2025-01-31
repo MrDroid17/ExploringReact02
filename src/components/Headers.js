@@ -44,7 +44,7 @@ const Header = () => {
                         HEADER_LINKS.map((link, index) => (
                             <li key={index} className="hover:bg-gray-300 rounded-md">
 
-                                <Link to={link.link} className="font-normal">{link.name === "Cart" ? (`${link.name}-(${cartItems.length} Items) `) : link.name}</Link>
+                                <Link to={link.link} className={link.name === "Cart" ? 'font-bold' : ''}>{link.name === "Cart" ? (`${link.name}-(${cartItems.length} Items) `) : link.name}</Link>
                             </li>
                         ))
 
