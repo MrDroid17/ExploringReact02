@@ -77,7 +77,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/daily/leetcode",
-                element: <DailyLeetCode /> 
+                element: <DailyLeetCode />
             },
             {
                 path: "/restaurant/:resId",
@@ -86,6 +86,9 @@ const appRouter = createBrowserRouter([
         ],
     }
 ],
+    {
+        basename: "/ExploringReact02",
+    },
     {
         future: {
             v7_startTransition: true,
