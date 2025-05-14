@@ -1,11 +1,11 @@
 {
   "name": "namesty-react",
-  "homepage": "https://mrdroid17.github.io/ExploringReact02",
+  "homepage": "https://MrDroid17.github.io/ExploringReact02",
   "version": "1.0.0",
   "description": "Namesty react ",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html"
