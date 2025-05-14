@@ -1,0 +1,78 @@
+.shimmer-container {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.shimmer-card {
+  background-color: #f0f0f0;
+  width: 200px;
+  height: 300px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.scard-title {
+  width: 80%;
+  height: 30px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.scard-body {
+  height: 60px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.cuisine {
+  height: 30px;
+  margin: 5px 2px;
+  padding: 0;
+}
+
+.rating {
+  width: 45%;
+  height: 20px;
+  margin: 5px 2px;
+}
+
+.scard-footer {
+  justify-content: space-between;
+  display: flex;
+}
+
+.scard-footer > div {
+  background: linear-gradient(to right, #ddd 8%, #f0f0f0 18%, #ddd 33%);
+  width: 60px;
+  height: 20px;
+  animation: 10s linear infinite shimmer;
+}
+
+.sres-img {
+  width: 200px;
+  height: 150px;
+}
+
+.search {
+  padding: 10px;
+}
+
+.filter-btn {
+  margin: 10px;
+}
+
+.shimmer-anime {
+  background: linear-gradient(to right, #ddd 8%, #f0f0f0 18%, #ddd 33%);
+  animation: 10s linear infinite shimmer;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+/*# sourceMappingURL=index.f15a7b05.css.map */
