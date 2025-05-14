@@ -87,6 +87,9 @@ const appRouter = createBrowserRouter([
     }
 ],
     {
+        basename: "/ExploringReact02",
+    },
+    {
         future: {
             v7_startTransition: true,
         },
