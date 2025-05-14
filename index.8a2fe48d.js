@@ -22379,8 +22379,6 @@ const $ca54843112627fe7$var$appRouter = (0, $b5fc7e37fd32e97b$export$1f3f55432a0
         ]
     }
 ], {
-    basename: "/ExploringReact02"
-}, {
     future: {
         v7_startTransition: true
     }
@@ -22391,4 +22389,4 @@ $ca54843112627fe7$var$root.render(/*#__PURE__*/ (0, $8CS36.jsx)((0, $b5fc7e37fd3
 }));
 
 
-//# sourceMappingURL=index.09648e51.js.map
+//# sourceMappingURL=index.8a2fe48d.js.map
