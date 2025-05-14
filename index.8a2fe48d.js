@@ -16302,7 +16302,7 @@ var $7Pt7X = parcelRequire("7Pt7X");
 
 var $7Pt7X = parcelRequire("7Pt7X");
 
-var $a69791b8040752a5$export$2e2bcd8739ae039 = useRestaurantMenu = (resId)=>{
+function $a69791b8040752a5$export$2e2bcd8739ae039(resId) {
     const [resInfo, setResInfo] = (0, $7Pt7X.useState)(null);
     (0, $7Pt7X.useEffect)(()=>{
         fetchData();
@@ -16314,7 +16314,7 @@ var $a69791b8040752a5$export$2e2bcd8739ae039 = useRestaurantMenu = (resId)=>{
         setResInfo(resData);
     };
     return resInfo;
-};
+}
 
 
 
@@ -22389,4 +22389,4 @@ $ca54843112627fe7$var$root.render(/*#__PURE__*/ (0, $8CS36.jsx)((0, $b5fc7e37fd3
 }));
 
 
-//# sourceMappingURL=index.a8b512ea.js.map
+//# sourceMappingURL=index.8a2fe48d.js.map
