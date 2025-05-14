@@ -22380,6 +22380,10 @@ const $ca54843112627fe7$var$appRouter = (0, $b5fc7e37fd32e97b$export$1f3f55432a0
     }
 ], {
     basename: "/ExploringReact02"
+}, {
+    future: {
+        v7_startTransition: true
+    }
 });
 const $ca54843112627fe7$var$root = (0, (/*@__PURE__*/$parcel$interopDefault($8f615c378d1abfed$exports))).createRoot(document.getElementById("root"));
 $ca54843112627fe7$var$root.render(/*#__PURE__*/ (0, $8CS36.jsx)((0, $b5fc7e37fd32e97b$export$323e4fc2fa4753fb), {
@@ -22387,4 +22391,4 @@ $ca54843112627fe7$var$root.render(/*#__PURE__*/ (0, $8CS36.jsx)((0, $b5fc7e37fd3
 }));
 
 
-//# sourceMappingURL=index.a341f700.js.map
+//# sourceMappingURL=index.09648e51.js.map
