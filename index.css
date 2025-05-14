@@ -117,3 +117,32 @@
     padding: 10px;
     border: 1px solid black;
 }
+
+.leetcode-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .leetcode-table th,
+  .leetcode-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .leetcode-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .tag-chip {
+    display: inline-block;
+    background-color: #cff8e2;
+    color: #2aa32e;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 15px;
+    font-size: 12px;
+  }

@@ -12,5 +12,6 @@ export const HEADER_LINKS = [
     { name: "About Us", link: "/about" },
     { name: "Contact Us", link: "/contact" },
     { name: "Grocery", link: "/grocery" },
-    { name: "Cart", link: "/cart" }
+    { name: "Cart", link: "/cart" },
+    { name: "Daily LeetCode", link: "/daily/leetcode" }
 ]

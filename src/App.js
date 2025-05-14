@@ -10,6 +10,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/AppStore";
 import Cart from "./components/Cart";
+import DailyLeetCode from "./components/DailyLeetCode";
 /**
  * 
  * Chucking, 
@@ -73,6 +74,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />
+            },
+            {
+                path: "/daily/leetcode",
+                element: <DailyLeetCode /> 
             },
             {
                 path: "/restaurant/:resId",
