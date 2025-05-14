@@ -15041,7 +15041,7 @@ let $b5fc7e37fd32e97b$var$savedScrollPositions = {};
 
 
 var $7Pt7X = parcelRequire("7Pt7X");
-var $cac1d01e7ec1e2c3$export$2e2bcd8739ae039 = useOnlineStatus = ()=>{
+function $cac1d01e7ec1e2c3$export$2e2bcd8739ae039() {
     const [isOnline, setIsOnline] = (0, $7Pt7X.useState)(navigator.onLine);
     (0, $7Pt7X.useEffect)(()=>{
         const handleOnline = ()=>setIsOnline(true);
@@ -15054,7 +15054,7 @@ var $cac1d01e7ec1e2c3$export$2e2bcd8739ae039 = useOnlineStatus = ()=>{
         };
     }, []);
     return isOnline;
-};
+}
 
 
 
@@ -22379,8 +22379,6 @@ const $ca54843112627fe7$var$appRouter = (0, $b5fc7e37fd32e97b$export$1f3f55432a0
         ]
     }
 ], {
-    basename: "/ExploringReact02"
-}, {
     future: {
         v7_startTransition: true
     }
@@ -22391,4 +22389,4 @@ $ca54843112627fe7$var$root.render(/*#__PURE__*/ (0, $8CS36.jsx)((0, $b5fc7e37fd3
 }));
 
 
-//# sourceMappingURL=index.47eed714.js.map
+//# sourceMappingURL=index.a8b512ea.js.map
